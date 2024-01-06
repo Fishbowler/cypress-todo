@@ -33,6 +33,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           install: false
+          browser: chrome
 
       - name: Upload test screenshots
         uses: actions/upload-artifact@v3

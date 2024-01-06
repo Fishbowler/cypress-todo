@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Cypress tests of Alan Richardson's TODO app",
   "scripts": {
-    "test": "cypress run"
+    "test": "cypress run --browser chrome"
   },
   "repository": {
     "type": "git",

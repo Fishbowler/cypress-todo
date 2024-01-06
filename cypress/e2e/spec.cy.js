@@ -14,7 +14,8 @@ describe('todolists', () => {
     listspage.elements.newListInput().should('be.visible')
     listspage.getList("eviltester").should('be.visible')
     
-    cy.matchImageSnapshot('listspage');
+    cy.viewport(1000,600)
+    cy.matchImageSnapshot('listspage')
   })
 
   it('can create a list', () => {

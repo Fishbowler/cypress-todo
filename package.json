@@ -1,0 +1,21 @@
+{
+  "name": "cypress-todo",
+  "version": "1.0.0",
+  "description": "Cypress tests of Alan Richardson's TODO app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fishbowler/cypress-todo.git"
+  },
+  "author": "Dan Caseley",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Fishbowler/cypress-todo/issues"
+  },
+  "homepage": "https://github.com/Fishbowler/cypress-todo#readme",
+  "devDependencies": {
+    "cypress": "^13.6.2"
+  }
+}

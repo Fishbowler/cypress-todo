@@ -17,3 +17,6 @@ node_modules/
 .env.production.local
 .env.local
 
+# Cypress things
+cypress/screenshots
+cypress/videos

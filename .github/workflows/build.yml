@@ -33,3 +33,27 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           install: false
+
+      - name: Upload test screenshots
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
+
+      - name: Upload test videos
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore
+
+      - name: Upload test snapshots
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cypress-snapshots
+          path: cypress/snapshots/**/__diff_output__/*.png
+          if-no-files-found: ignore

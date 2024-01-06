@@ -1,6 +1,11 @@
 import Listspage from '../pages/listspage'
 
-it('works', () => {
+describe('todolists', () => {
+  beforeEach(() => {
+    cy.clearLocalStorage()
+  })
+  
+  it('displays the homepage correctly', () => {
     cy.visit('/todolists.html')
 
     const listspage = new Listspage()
@@ -10,3 +15,23 @@ it('works', () => {
     listspage.getList("eviltester").should('be.visible')
     
   })
+
+  it('can create a list', () => {
+    cy.visit('/todolists.html')
+
+    const listspage = new Listspage()
+    
+    listspage.createList("my new list")
+    listspage.getList("my new list").should('be.visible')
+  })
+
+  it('can delete a list', () => {
+    cy.visit('/todolists.html')
+
+    const listspage = new Listspage()
+    
+    listspage.createList("another list")
+    listspage.deleteList("another list")
+    listspage.getList("another list").should('not.exist')
+  })
+})

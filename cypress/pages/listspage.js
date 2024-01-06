@@ -12,14 +12,19 @@ class Listspage extends Basepage {
         listOfLists: () => cy.get(".todo-list-list"),
     }
 
+    _prepareListName(listName) {
+        return listName.toLowerCase().replaceAll(" ", "-")
+    }
+
     getList(listName) {
+        listName = this._prepareListName(listName)
         return this.elements.listOfLists() // get the list of lists
-            .get('[data-id="'+listName+'"]') // get the list with the name
+            .find('[data-id="'+listName+'"]') // get the list with the name
     }
 
     deleteList(listName) {
-        return getList(listName)
-            .get(".destroy") // get the delete button
+        return this.getList(listName)
+            .find(".destroy") // get the delete button
             .click()
     }
 

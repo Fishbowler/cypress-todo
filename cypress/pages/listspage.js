@@ -22,6 +22,10 @@ class Listspage extends Basepage {
             .find('[data-id="'+listName+'"]') // get the list with the name
     }
 
+    openList(listName) {
+        this.getList(listName).contains("[use]").click()
+    }
+
     deleteList(listName) {
         return this.getList(listName)
             .find(".destroy") // get the delete button

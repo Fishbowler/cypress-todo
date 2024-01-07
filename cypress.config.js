@@ -8,4 +8,5 @@ module.exports = defineConfig({
       addMatchImageSnapshotPlugin(on)
     },
   },
+  fixturesFolder: "cypress/fixtures",
 });

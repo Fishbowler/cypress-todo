@@ -1,6 +1,7 @@
 import Loginpage from '../pages/loginpage'
 
 describe('todolist login', () => {
+
     beforeEach(() => {
         cy.clearLocalStorage()
         cy.clearAllCookies()
@@ -11,7 +12,9 @@ describe('todolist login', () => {
 
         const loginpage = new Loginpage()
 
-        loginpage.loginAs("Admin", "password")
+        cy.fixture('credentials').then((credentials) => {
+            loginpage.loginAs(credentials.correctUsername, credentials.incorrectPassword)
+        })
 
         loginpage.elements.loginMessage().should('contain', 'Login Details Incorrect')
     })
@@ -21,7 +24,9 @@ describe('todolist login', () => {
 
         const loginpage = new Loginpage()
 
-        loginpage.loginAs("Admin", "AdminPass")
+        cy.fixture('credentials').then((credentials) => {
+            loginpage.loginAs(credentials.correctUsername, credentials.correctPassword)
+        })
 
         cy.url().should('include', '/adminview.html')
         cy.getAllCookies().should('have.length', 1)

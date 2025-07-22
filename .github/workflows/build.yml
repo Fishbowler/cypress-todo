@@ -18,7 +18,7 @@ jobs:
         shell: bash
         run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: npm-cache
         with:
           path: ${{ steps.npm-cache-dir.outputs.dir }}
@@ -36,7 +36,7 @@ jobs:
           browser: chrome
 
       - name: Upload test screenshots
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: cypress-screenshots
@@ -44,7 +44,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Upload test videos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: cypress-videos
@@ -52,7 +52,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Upload test snapshots
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: cypress-snapshots
